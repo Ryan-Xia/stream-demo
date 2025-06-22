@@ -1,0 +1,100 @@
+/* pages/ai-kefu/ai-kefu.wxss */
+.container {
+  background: #f6f8fc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.back {
+  position: absolute;
+  left: 30rpx;
+  font-size: 40rpx;
+  color: #888;
+}
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.chat-area {
+  flex: 1;
+  padding: 30rpx 20rpx 0 20rpx;
+}
+.ai-msg, .user-msg {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30rpx;
+}
+.ai-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 16rpx;
+}
+.user-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 16rpx;
+  order: 2;
+}
+.ai-bubble {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  box-shadow: 0 2rpx 8rpx #e0e0e0;
+}
+.user-bubble {
+  background: #eaf2fb;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  margin-right: 16rpx;
+  order: 1;
+}
+.user-msg {
+  flex-direction: row-reverse;
+}
+
+.input-area {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 20rpx;
+  background: #fff;
+  border-top: 1rpx solid #eee;
+}
+.input-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #f6f8fc;
+  border-radius: 32rpx;
+  height: 64rpx;
+  padding: 0 20rpx;
+  margin-right: 16rpx;
+}
+.mic-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 12rpx;
+}
+.input {
+  flex: 1;
+  height: 64rpx;
+  border: none;
+  background: transparent;
+  font-size: 28rpx;
+  outline: none;
+}
+.send-btn {
+  background: #3b6cff;
+  color: #fff;
+  border-radius: 32rpx;
+  font-size: 28rpx;
+  padding: 0 36rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,24 @@
+<!-- pages/ai-kefu/ai-kefu.wxml -->
+<view class="container">
+  <view class="chat-area">
+    <view class="ai-msg">
+      <image class="ai-avatar" src=""/>
+      <view class="ai-bubble">
+        <text>您好！我是您的AI助理，很高兴为您服务</text>
+      </view>
+    </view>
+    <view class="user-msg">
+      <image class="user-avatar" src=""/>
+      <view class="user-bubble">
+        <text>和我说一说你可以做什么吧？</text>
+      </view>
+    </view>
+
+  </view>
+  <view class="input-area">
+    <view class="input-wrapper">
+      <input class="input" placeholder="请输入您遇到的问题" value="{{inputValue}}" bindinput="onInput"/>
+    </view>
+    <button class="send-btn" bindtap="onSend">发送</button>
+  </view>
+</view>
