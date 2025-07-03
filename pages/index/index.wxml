@@ -1,24 +1,53 @@
-<!-- pages/ai-kefu/ai-kefu.wxml -->
 <view class="container">
-  <view class="chat-area">
-    <view class="ai-msg">
-      <image class="ai-avatar" src=""/>
-      <view class="ai-bubble">
-        <text>您好！我是您的AI助理，很高兴为您服务</text>
-      </view>
-    </view>
-    <view class="user-msg">
-      <image class="user-avatar" src=""/>
-      <view class="user-bubble">
-        <text>和我说一说你可以做什么吧？</text>
-      </view>
-    </view>
 
-  </view>
-  <view class="input-area">
-    <view class="input-wrapper">
-      <input class="input" placeholder="请输入您遇到的问题" value="{{inputValue}}" bindinput="onInput"/>
+  <!-- 聊天消息展示区 -->
+  <scroll-view class="chat-area" scroll-y="true" scroll-with-animation="true" scroll-into-view="{{scrollToView}}">
+    <!-- 初始欢迎消息 -->
+    <view class="chat-bubble system-bubble" id="msg-welcome">
+      <view class="avatar-container">
+        <image class="chat-avatar" src="../images/avatar.png" mode="aspectFill" />
+      </view>
+      <view class="message-content">
+        <text>很高兴见到你！我是爱荷智能小管家乐荷荷，能帮你更好的了解自己的健康状况。无论是饮食、运动、睡眠，我都能提供帮助。现在，你想要咨询些什么呢？</text>
+      </view>
     </view>
+    
+    <!-- 历史消息（交替显示） -->
+    <block wx:for="{{messages}}" wx:key="index">
+      <!-- 用户消息 -->
+      <view wx:if="{{item.role === 'user'}}" class="chat-bubble user-bubble" id="msg{{index}}">
+        <view class="message-content user-content">
+          <text>{{item.userContent}}</text>
+        </view>
+        <view class="avatar-container user-avatar-container">
+          <view class="user-avatar">我</view>
+        </view>
+      </view>
+      <!-- 系统消息 -->
+      <view wx:if="{{item.role === 'sys'}}" class="chat-bubble system-bubble" id="msg{{index}}">
+        <view class="avatar-container">
+          <image class="chat-avatar" src="../images/avatar.png" mode="aspectFill" />
+        </view>
+        <view class="message-content">
+          <text>{{item.sysContent}}</text>
+        </view>
+      </view>
+    </block>
+       <!-- 当前正在流式输出的系统消息 -->
+    <view wx:if="{{systemStream}}" class="chat-bubble system-bubble" id="msgStream">
+      <view class="avatar-container">
+        <image class="chat-avatar" src="../images/avatar.png" mode="aspectFill" />
+      </view>
+      <view class="message-content">
+        <text>{{systemStream}}</text>
+      </view>
+    </view>
+    
+  </scroll-view>
+  
+  <!-- 底部输入栏 -->
+  <view class="footer">
+    <input class="input" value="{{inputValue}}" bindinput="onInput" placeholder="咨询乐荷荷，请点击" />
     <button class="send-btn" bindtap="onSend">发送</button>
   </view>
 </view>
